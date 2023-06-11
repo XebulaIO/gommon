@@ -102,6 +102,14 @@ func (l *Logger) EnableColor() {
 	l.initLevels()
 }
 
+func (l *Logger) Skip() int {
+	return l.skip
+}
+
+func (l *Logger) SetSkip(skip int) {
+	l.skip = skip
+}
+
 func (l *Logger) Prefix() string {
 	return l.prefix
 }
