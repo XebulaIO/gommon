@@ -3,6 +3,7 @@ module github.com/XebulaIO/gommon
 go 1.17
 
 require (
+	github.com/labstack/gommon v0.4.0
 	github.com/mattn/go-colorable v0.1.13
 	github.com/mattn/go-isatty v0.0.17
 	github.com/stretchr/testify v1.8.1

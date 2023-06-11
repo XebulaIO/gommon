@@ -17,6 +17,7 @@ import (
 	"github.com/valyala/fasttemplate"
 
 	"github.com/XebulaIO/gommon/color"
+	glog "github.com/labstack/gommon/log"
 )
 
 type (
@@ -33,8 +34,6 @@ type (
 	}
 
 	Lvl uint8
-
-	JSON map[string]interface{}
 )
 
 const (
@@ -154,7 +153,7 @@ func (l *Logger) Printf(format string, args ...interface{}) {
 	l.log(0, format, args...)
 }
 
-func (l *Logger) Printj(j JSON) {
+func (l *Logger) Printj(j glog.JSON) {
 	l.log(0, "json", j)
 }
 
@@ -166,7 +165,7 @@ func (l *Logger) Debugf(format string, args ...interface{}) {
 	l.log(DEBUG, format, args...)
 }
 
-func (l *Logger) Debugj(j JSON) {
+func (l *Logger) Debugj(j glog.JSON) {
 	l.log(DEBUG, "json", j)
 }
 
@@ -178,7 +177,7 @@ func (l *Logger) Infof(format string, args ...interface{}) {
 	l.log(INFO, format, args...)
 }
 
-func (l *Logger) Infoj(j JSON) {
+func (l *Logger) Infoj(j glog.JSON) {
 	l.log(INFO, "json", j)
 }
 
@@ -190,7 +189,7 @@ func (l *Logger) Warnf(format string, args ...interface{}) {
 	l.log(WARN, format, args...)
 }
 
-func (l *Logger) Warnj(j JSON) {
+func (l *Logger) Warnj(j glog.JSON) {
 	l.log(WARN, "json", j)
 }
 
@@ -202,7 +201,7 @@ func (l *Logger) Errorf(format string, args ...interface{}) {
 	l.log(ERROR, format, args...)
 }
 
-func (l *Logger) Errorj(j JSON) {
+func (l *Logger) Errorj(j glog.JSON) {
 	l.log(ERROR, "json", j)
 }
 
@@ -216,7 +215,7 @@ func (l *Logger) Fatalf(format string, args ...interface{}) {
 	os.Exit(1)
 }
 
-func (l *Logger) Fatalj(j JSON) {
+func (l *Logger) Fatalj(j glog.JSON) {
 	l.log(fatalLevel, "json", j)
 	os.Exit(1)
 }
@@ -231,7 +230,7 @@ func (l *Logger) Panicf(format string, args ...interface{}) {
 	panic(fmt.Sprintf(format, args...))
 }
 
-func (l *Logger) Panicj(j JSON) {
+func (l *Logger) Panicj(j glog.JSON) {
 	l.log(panicLevel, "json", j)
 	panic(j)
 }
@@ -280,7 +279,7 @@ func Printf(format string, args ...interface{}) {
 	global.Printf(format, args...)
 }
 
-func Printj(j JSON) {
+func Printj(j glog.JSON) {
 	global.Printj(j)
 }
 
@@ -292,7 +291,7 @@ func Debugf(format string, args ...interface{}) {
 	global.Debugf(format, args...)
 }
 
-func Debugj(j JSON) {
+func Debugj(j glog.JSON) {
 	global.Debugj(j)
 }
 
@@ -304,7 +303,7 @@ func Infof(format string, args ...interface{}) {
 	global.Infof(format, args...)
 }
 
-func Infoj(j JSON) {
+func Infoj(j glog.JSON) {
 	global.Infoj(j)
 }
 
@@ -316,7 +315,7 @@ func Warnf(format string, args ...interface{}) {
 	global.Warnf(format, args...)
 }
 
-func Warnj(j JSON) {
+func Warnj(j glog.JSON) {
 	global.Warnj(j)
 }
 
@@ -328,7 +327,7 @@ func Errorf(format string, args ...interface{}) {
 	global.Errorf(format, args...)
 }
 
-func Errorj(j JSON) {
+func Errorj(j glog.JSON) {
 	global.Errorj(j)
 }
 
@@ -340,7 +339,7 @@ func Fatalf(format string, args ...interface{}) {
 	global.Fatalf(format, args...)
 }
 
-func Fatalj(j JSON) {
+func Fatalj(j glog.JSON) {
 	global.Fatalj(j)
 }
 
@@ -352,7 +351,7 @@ func Panicf(format string, args ...interface{}) {
 	global.Panicf(format, args...)
 }
 
-func Panicj(j JSON) {
+func Panicj(j glog.JSON) {
 	global.Panicj(j)
 }
 
