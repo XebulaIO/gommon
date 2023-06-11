@@ -9,7 +9,7 @@ import (
 	"net/smtp"
 	"time"
 
-	"github.com/labstack/gommon/random"
+	"github.com/XebulaIO/gommon/random"
 )
 
 type (

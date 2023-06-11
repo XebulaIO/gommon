@@ -1,4 +1,4 @@
-PKG := "github.com/labstack/gommon"
+PKG := "github.com/XebulaIO/gommon"
 PKG_LIST := $(shell go list ${PKG}/...)
 
 .DEFAULT_GOAL := check

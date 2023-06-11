@@ -1,4 +1,4 @@
-module github.com/labstack/gommon
+module github.com/XebulaIO/gommon
 
 go 1.17
 

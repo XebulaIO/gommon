@@ -5,17 +5,17 @@ Style terminal text.
 ## Installation
 
 ```sh
-go get github.com/labstack/gommon/color
+go get github.com/XebulaIO/gommon/color
 ```
 
 ## Windows?
 
 Try [cmder](http://bliker.github.io/cmder) or https://github.com/mattn/go-colorable
 
-## [Usage](https://github.com/labstack/gommon/blob/master/color/color_test.go)
+## [Usage](https://github.com/XebulaIO/gommon/blob/master/color/color_test.go)
 
 ```sh
-import github.com/labstack/gommon/color
+import github.com/XebulaIO/gommon/color
 ```
 
 ### Colored text
