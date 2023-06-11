@@ -7,6 +7,7 @@ import (
 	"sync"
 	"testing"
 
+	glog "github.com/labstack/gommon/log"
 	"github.com/stretchr/testify/assert"
 )
 
@@ -106,7 +107,7 @@ func TestJSON(t *testing.T) {
 	b := new(bytes.Buffer)
 	l.SetOutput(b)
 	l.SetLevel(DEBUG)
-	l.Debugj(JSON{"name": "value"})
+	l.Debugj(glog.JSON{"name": "value"})
 	assert.Contains(t, b.String(), `"name":"value"`)
 }
 

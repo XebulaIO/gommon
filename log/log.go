@@ -32,12 +32,10 @@ type (
 		bufferPool sync.Pool
 		mutex      sync.Mutex
 	}
-
-	Lvl uint8
 )
 
 const (
-	DEBUG Lvl = iota + 1
+	DEBUG glog.Lvl = iota + 1
 	INFO
 	WARN
 	ERROR
@@ -117,11 +115,11 @@ func (l *Logger) SetPrefix(p string) {
 	l.prefix = p
 }
 
-func (l *Logger) Level() Lvl {
-	return Lvl(atomic.LoadUint32(&l.level))
+func (l *Logger) Level() glog.Lvl {
+	return glog.Lvl(atomic.LoadUint32(&l.level))
 }
 
-func (l *Logger) SetLevel(level Lvl) {
+func (l *Logger) SetLevel(level glog.Lvl) {
 	atomic.StoreUint32(&l.level, uint32(level))
 }
 
@@ -251,11 +249,11 @@ func SetPrefix(p string) {
 	global.SetPrefix(p)
 }
 
-func Level() Lvl {
+func Level() glog.Lvl {
 	return global.Level()
 }
 
-func SetLevel(level Lvl) {
+func SetLevel(level glog.Lvl) {
 	global.SetLevel(level)
 }
 
@@ -355,7 +353,7 @@ func Panicj(j glog.JSON) {
 	global.Panicj(j)
 }
 
-func (l *Logger) log(level Lvl, format string, args ...interface{}) {
+func (l *Logger) log(level glog.Lvl, format string, args ...interface{}) {
 	if level >= l.Level() || level == 0 {
 		buf := l.bufferPool.Get().(*bytes.Buffer)
 		buf.Reset()
